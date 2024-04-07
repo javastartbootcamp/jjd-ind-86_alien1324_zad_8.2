@@ -5,14 +5,13 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Ticket tk1 = new Ticket("Seans nocny", "PKiN", "bilet internetowy", 100, 0.05);
-        Ticket tk2 = new Ticket("Noc w muzeum", "Muzeum Narodowe", "bilet standardowy", 100, 0.05);
-        Ticket tk3 = new Ticket("Maraton Władcy Pierścieni", "Multikino Złote Tarasy", "bilet prezentowy", 100, 0.05);
-        tk1.showInfo();
-        System.out.println();
-        tk2.showInfo();
-        System.out.println();
-        tk3.showInfo();
-        System.out.println();
+        Scanner sc = new Scanner(System.in);
+        do {
+            Ticket tk = Ticket.makeTicket();
+            tk.showInfo();
+            System.out.println();
+            System.out.println("W celu zakończenia tworzenia biletów proszę wpisać \"0\"");
+        } while (sc.nextInt() != 0);
+
     }
 }

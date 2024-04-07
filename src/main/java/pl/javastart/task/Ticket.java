@@ -63,4 +63,35 @@ public class Ticket {
     public int getId() {
         return id;
     }
+
+    private static String takeEvent(Scanner sc) {
+        System.out.println("Proszę podać nazwę wydarzenia");
+        return sc.nextLine();
+    }
+
+    private static String takePlace(Scanner sc) {
+        System.out.println("Proszę podać nazwę miejsca");
+        return sc.nextLine();
+    }
+
+    private static String takeType(Scanner sc) {
+        System.out.println("Proszę podać typ biletu: \"bilet standardowy\"," +
+                " \"bilet internetowy\" lub \"bilet prezentowy\"");
+        return sc.nextLine();
+    }
+
+    private static double takePrice(Scanner sc) {
+        System.out.println("Proszę podać cenę podstawową");
+        return sc.nextDouble();
+    }
+
+    private static double takeDiscount(Scanner sc) {
+        System.out.println("Proszę podać zniżkę");
+        return sc.nextDouble();
+    }
+
+    public static Ticket makeTicket() {
+        Scanner sc = new Scanner(System.in);
+        return new Ticket(takeEvent(sc), takePlace(sc), takeType(sc), takePrice(sc), takeDiscount(sc));
+    }
 }
